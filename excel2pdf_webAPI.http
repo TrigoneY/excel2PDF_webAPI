@@ -1,0 +1,31 @@
+@excel2pdf_webAPI_HostAddress = https://localhost:7192
+### list xlsx files
+GET {{excel2pdf_webAPI_HostAddress}}/excel2pdf/list?type=2
+Accept: application/json
+
+### list pdf files
+GET {{excel2pdf_webAPI_HostAddress}}/excel2pdf/list?type=1
+Accept: application/json
+
+### upload xlsx files 
+POST  {{excel2pdf_webAPI_HostAddress}}/excel2pdf/upload
+Accept: application/json
+# To run follow command at cmd for test upload api 
+#curl -F "file=@E:\document\notebook root\Csharp\WebAPI_Excel2Pdf\WebAPI_Excel2Pdf\data\test2.xlsx" https://localhost:7192/excel2pdf/upload
+
+### xlsx to pdf file
+GET {{excel2pdf_webAPI_HostAddress}}/excel2pdf?xlsxfilename=test3
+Accept: application/json
+
+### download files 
+GET {{excel2pdf_webAPI_HostAddress}}/StaticFile/test3.pdf
+
+### update config 
+GET {{excel2pdf_webAPI_HostAddress}}/excel2pdf/update?key=PrintGrid&value=0
+### only one item could be update at once request
+GET {{excel2pdf_webAPI_HostAddress}}/excel2pdf/update?key=PageScale&value=200
+
+
+### delete files
+DELETE {{excel2pdf_webAPI_HostAddress}}/excel2pdf/test.pdf
+
